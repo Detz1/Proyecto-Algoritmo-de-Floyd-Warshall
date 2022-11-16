@@ -10,54 +10,64 @@ package Proyecto;
  */
 public class FloydWarshall
 {
-    private int             distancematrix[][];
+    private int             matriz[][];
     private int             numberofvertices;
     public static final int INFINITY = 999;
  
     public FloydWarshall(int numberofvertices)
     {
-        distancematrix = new int[numberofvertices + 1][numberofvertices + 1];
+         matriz = new int[numberofvertices + 1][numberofvertices + 1];
         this.numberofvertices = numberofvertices;
     }
  
-    public void floydwarshall(int adjacencymatrix[][])
-    {
+    public void Operando(int ans[][],int path[][]){  //Recibe 2 parametros
+
+        // Implementar el algoritmo en una matriz de copia de modo que la adyacencia no es destruido.
         for (int source = 1; source <= numberofvertices; source++)
         {
             for (int destination = 1; destination <= numberofvertices; destination++)
             {
-                distancematrix[source][destination] = adjacencymatrix[source][destination];
+                matriz[source][destination] = ans[source][destination];
             }
         }
-        long inicio=0,fin=0;
-        inicio=System.nanoTime();
-        for (int intermediate = 1; intermediate <= numberofvertices; intermediate++)
-        {
-            for (int source = 1; source <= numberofvertices; source++)
-            {
-                for (int destination = 1; destination <= numberofvertices; destination++)
-                {
-                    if (distancematrix[source][intermediate]+ distancematrix[intermediate][destination] 
-                        < distancematrix[source][destination]) distancematrix[source][destination] 
-                        = distancematrix[source][intermediate]+ distancematrix[intermediate][destination];
+        
+        for (int i = 1; i < path.length; i++) {  
+            for (int j = 1; j < path.length; j++) {
+                if (matriz[i][j] == 999) {
+                    path[i][j] = -1;
+                } else {
+                    path[i][j] = i;
                 }
             }
         }
-        fin=System.nanoTime();
         
-        for (int source = 1; source <= numberofvertices; source++)
-            System.out.print("\t" + source);
-        System.out.println();
-        for (int source = 1; source <= numberofvertices; source++)
-        {
-            System.out.print(source + "\t");
-            for (int destination = 1; destination <= numberofvertices; destination++)
-            {
-                System.out.print(distancematrix[source][destination] + "\t");
-            }
-            System.out.println();
+        for (int i = 1; i < path.length; i++) {
+            path[i][i] = i;
         }
         
-        System.out.println("\nTIEMPO DE EJECUCION: "+(fin-inicio));
+        for (int k = 1; k <=numberofvertices; k++) {
+
+            // Es así que entre cada par de puntos posibles.
+            for (int i =1; i <=numberofvertices; i++) {
+                for (int j = 1; j <=numberofvertices; j++) {
+
+                    if (ans[i][k] + ans[k][j] < ans[i][j]) {
+                        
+                        ans[i][j] = ans[i][k] + ans[k][j];
+                        path[i][j] = path[k][j];
+                    }
+                }
+            }
+        }
+
+        int cont=0;      //Encabezados de la matriz a mostrar
+        for (int source = 0; source <= numberofvertices; source++)
+        {   
+            for (int destination = 0; destination <= numberofvertices; destination++)
+            {
+             ans[cont][destination]=destination;
+             ans[destination][cont]=destination;
+            }
+        }
     }
 }

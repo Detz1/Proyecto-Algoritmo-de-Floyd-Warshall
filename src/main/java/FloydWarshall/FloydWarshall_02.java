@@ -1,19 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author Detz1
- */
+
+// Corresponde a Denis Lewis Johna(bloguero)
+
+package FloydWarshall;
 import java.util.Scanner;
 
 /**
  *
  * @author Denis,Lewis,Johna
  */
-public class ejem02 {
+public class FloydWarshall_02 {
     
     
     public static int[][] shortestpath(int[][] adj, int[][] path) {
@@ -119,10 +115,10 @@ public class ejem02 {
             path[i][i] = i;
         }
         
-        long inicio=0,fin=0;
-        inicio = System.nanoTime();
+        //long inicio=0,fin=0;
+        //inicio = System.nanoTime();
         shortpath = shortestpath(m, path);
-        fin =System.nanoTime();
+        //fin =System.nanoTime();
 
         //Imprime distancias más cortas.
         for (int i = 0; i < 5; i++) {
@@ -139,7 +135,7 @@ public class ejem02 {
             System.out.println();
         }*/
         
-        System.out.println("\nTIEMPO DE EJCUCION: "+(fin-inicio));
+        //System.out.println("\nTIEMPO DE EJCUCION: "+(fin-inicio));
 
         System.out.println("\nDe dónde a dónde usted quiere encontrar el camino más corto?(0 to 4)");
         int start = stdin.nextInt();

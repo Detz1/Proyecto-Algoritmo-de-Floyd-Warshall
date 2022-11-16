@@ -1,25 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author Detz1
- */
-// Floyd Warshall Algorithm in Java
+// Corresponde a Sanfoundry
 
-// Floyd Warshall Algorithm in Java
-
+package FloydWarshall;
 import java.util.Scanner;
  
-public class FloydWarshallShortestPath
+public class FloydWarshall_01
 {
     private int             distancematrix[][];
     private int             numberofvertices;
     public static final int INFINITY = 999;
  
-    public FloydWarshallShortestPath(int numberofvertices)
+    public FloydWarshall_01(int numberofvertices)
     {
         distancematrix = new int[numberofvertices + 1][numberofvertices + 1];
         this.numberofvertices = numberofvertices;
@@ -70,10 +61,10 @@ public class FloydWarshallShortestPath
         int adjacency_matrix[][];
         int numberofvertices;
         Scanner scan = new Scanner(System.in);
-        System.out.println("NUMERO DE VERTICES: ");
+        System.out.println("Ingrese numero de vertices: ");
         numberofvertices = scan.nextInt();
         adjacency_matrix = new int[numberofvertices + 1][numberofvertices + 1];
-        System.out.println("Ingrese elementos: ");
+        System.out.println("Ingrese elementos");
         for (int source = 1; source <= numberofvertices; source++)
         {
             for (int destination = 1; destination <= numberofvertices; destination++)
@@ -91,14 +82,14 @@ public class FloydWarshallShortestPath
                 }
             }
         }
-        System.out.println("\n\n\t** RESULTADO ** \n");
-        FloydWarshallShortestPath floydwarshall = new FloydWarshallShortestPath(numberofvertices);
+        //System.out.println("\n\n\t** RESULTADO ** \n");
+        FloydWarshall_01 floydwarshall = new FloydWarshall_01(numberofvertices);
         
-        long inicio=0,fin=0;
-        inicio = System.nanoTime();
+        //long inicio=0,fin=0;
+       //inicio = System.nanoTime();
         floydwarshall.floydwarshall(adjacency_matrix);
-        fin =System.nanoTime();
-        System.out.println("\nTIEMPO DE EJCUCION: "+(fin-inicio));
+        //fin =System.nanoTime();
+        //System.out.println("\nTIEMPO DE EJCUCION: "+(fin-inicio));
         scan.close();
     }
 }
