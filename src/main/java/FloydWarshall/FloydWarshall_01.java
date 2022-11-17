@@ -82,14 +82,14 @@ public class FloydWarshall_01
                 }
             }
         }
-        //System.out.println("\n\n\t** RESULTADO ** \n");
+        System.out.println("\n\n\t** RESULTADO ** \n");
         FloydWarshall_01 floydwarshall = new FloydWarshall_01(numberofvertices);
         
-        //long inicio=0,fin=0;
-       //inicio = System.nanoTime();
+        long inicio=0,fin=0;
+        inicio = System.nanoTime();
         floydwarshall.floydwarshall(adjacency_matrix);
-        //fin =System.nanoTime();
-        //System.out.println("\nTIEMPO DE EJCUCION: "+(fin-inicio));
+        fin =System.nanoTime();
+        System.out.println("\nTiempo de ejecucion: "+(fin-inicio));
         scan.close();
     }
 }

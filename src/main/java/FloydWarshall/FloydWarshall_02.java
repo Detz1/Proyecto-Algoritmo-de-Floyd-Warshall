@@ -115,12 +115,14 @@ public class FloydWarshall_02 {
             path[i][i] = i;
         }
         
-        //long inicio=0,fin=0;
-        //inicio = System.nanoTime();
+        long inicio=0,fin=0;
+        inicio = System.nanoTime();
         shortpath = shortestpath(m, path);
-        //fin =System.nanoTime();
+        fin =System.nanoTime();
 
         //Imprime distancias más cortas.
+        
+        System.out.println("\n\n\t** RESULTADO ** \n");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 System.out.print(shortpath[i][j] + "\t");
@@ -135,7 +137,7 @@ public class FloydWarshall_02 {
             System.out.println();
         }*/
         
-        //System.out.println("\nTIEMPO DE EJCUCION: "+(fin-inicio));
+        System.out.println("\nTIEMPO DE EJCUCION: "+(fin-inicio));
 
         System.out.println("\nDe dónde a dónde usted quiere encontrar el camino más corto?(0 to 4)");
         int start = stdin.nextInt();
